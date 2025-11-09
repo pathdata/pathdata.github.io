@@ -1,6 +1,6 @@
-# Your GitHub Pages CV Website
+# GitHub Pages  Website
 
-This repository contains your professional CV website that will be hosted on GitHub Pages.
+This repository contains professional CV and track record hosted on GitHub Pages.
 
 ## Files Included
 
