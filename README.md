@@ -10,13 +10,8 @@ This repository contains professional CV and track record hosted on GitHub Pages
 
 ## Deployment Instructions
 
-### Method 1: Upload via GitHub Website (Easiest)
-
-1. Go to your repository: `https://github.com/yourusername/yourusername.github.io`
-2. Click "Add file" → "Upload files"
-3. Drag and drop both `index.html` and `styles.css` files
-4. Scroll down and click "Commit changes"
-5. Wait 1-2 minutes, then visit: `https://yourusername.github.io`
+### GitHub Website 
+https://pathdata.github.io/
 
 ## Customization Tips
 
@@ -44,15 +39,6 @@ To add a new section:
 1. Add a navigation link in the `<nav>` section of index.html
 2. Create a new `<section>` in the main content area
 3. Style it similar to existing sections
-
-## Features
-
-✓ Responsive design (works on all devices)
-✓ Smooth navigation
-✓ Professional color scheme
-✓ Print-friendly (for PDF generation)
-✓ Accessible markup
-✓ Fast loading
 
 ## Adding Publications
 
@@ -82,29 +68,9 @@ And add corresponding CSS in styles.css:
 }
 ```
 
-## Troubleshooting
-
-**Site not showing up?**
-- Wait 2-5 minutes after pushing changes
-- Check repository settings → Pages → ensure "Deploy from a branch" is selected
-- Make sure the repository name is exactly `yourusername.github.io`
-
-**Styling not working?**
-- Ensure both files are in the root directory
-- Check that file names are exactly: `index.html` and `styles.css`
-- Clear your browser cache
-
-**Want to use a custom domain?**
-- Go to repository Settings → Pages
-- Add your custom domain in the "Custom domain" field
-- Follow GitHub's instructions for DNS configuration
-
 ## Support
 
 For more information about GitHub Pages:
 - https://pages.github.com/
 - https://docs.github.com/en/pages
 
-## License
-
-Feel free to modify and use this template for your own CV!
