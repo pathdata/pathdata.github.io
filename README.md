@@ -15,15 +15,9 @@ https://pathdata.github.io/
 
 ## Customization Tips
 
-### Update Your Information
+### Update Information
 
-Open `index.html` and modify:
-- Contact information in the header
-- About section content
-- Research interests
-- Experience details
-- Education information
-- Skills lists
+- Publication
 - Supervision section
 
 ### Change Colors
