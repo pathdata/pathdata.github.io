@@ -37,6 +37,7 @@ header .title {
     font-size: 1.3em;
     margin-bottom: 20px;
     opacity: 0.95;
+    text-align: center;
 }
 
 .contact-info {
