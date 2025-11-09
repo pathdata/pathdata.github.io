@@ -18,30 +18,6 @@ This repository contains your professional CV website that will be hosted on Git
 4. Scroll down and click "Commit changes"
 5. Wait 1-2 minutes, then visit: `https://yourusername.github.io`
 
-### Method 2: Using Git (Command Line)
-
-```bash
-# Clone your repository
-git clone https://github.com/yourusername/yourusername.github.io.git
-cd yourusername.github.io
-
-# Copy your files into this directory
-# (copy index.html and styles.css here)
-
-# Add, commit, and push
-git add index.html styles.css
-git commit -m "Add CV website"
-git push origin main
-```
-
-### Method 3: Using GitHub Desktop
-
-1. Download GitHub Desktop from https://desktop.github.com/
-2. Clone your repository
-3. Copy `index.html` and `styles.css` to the repository folder
-4. In GitHub Desktop, commit the changes
-5. Push to origin
-
 ## Customization Tips
 
 ### Update Your Information
