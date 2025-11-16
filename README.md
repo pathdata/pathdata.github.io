@@ -4,8 +4,8 @@ This repository contains professional CV and track record hosted on GitHub Pages
 
 ## Files Included
 
-1. **index.html** - The main HTML file with your CV content
-2. **styles.css** - The stylesheet for your website
+1. **index.html** - The main HTML file with CV 
+2. **styles.css** - The stylesheet for the deployed website
 3. **README.md** - This file with instructions
 
 ## Deployment Instructions
