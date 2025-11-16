@@ -34,34 +34,6 @@ To add a new section:
 2. Create a new `<section>` in the main content area
 3. Style it similar to existing sections
 
-## Adding Publications
-
-If you want to add a publications section, add this code before the footer in index.html:
-
-```html
-<section id="publications">
-    <h2>Selected Publications</h2>
-    <div class="publication-item">
-        <p><strong>Title of Paper</strong></p>
-        <p>Authors: Your Name, Co-author, etc.</p>
-        <p>Journal Name, Year. DOI: <a href="#">link</a></p>
-    </div>
-    <!-- Add more publications -->
-</section>
-```
-
-And add corresponding CSS in styles.css:
-
-```css
-.publication-item {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #667eea;
-}
-```
-
 ## Support
 
 For more information about GitHub Pages:
