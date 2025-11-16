@@ -575,6 +575,11 @@ footer p {
     box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
+.badge-networking {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    box-shadow: 0 2px 8px rgba(17, 153, 142, 0.3);
+}
+
 .badge-doi {
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
