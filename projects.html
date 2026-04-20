@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Priya Lakshmi Narayanan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Priya Lakshmi Narayanan PhD (Biomedical Engineering)</h1>
+            <p class="title">Senior Scientific Officer | Computational Scientist</p>
+            <div class="contact-info">
+                <a href="mailto:priya.narayanan@icr.ac.uk"><i class="fas fa-envelope"></i> priya.narayanan@icr.ac.uk</a>
+                <a href="https://orcid.org/0000-0001-6784-9226" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
+                <a href="https://www.linkedin.com/in/priya-lakshmi-narayanan-7aa71748/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#education">Education</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="conferences.html">Conferences</a></li>
+                <li><a href="networking.html">Networking Events</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="portfolio">
+            <h2><i class="fas fa-project-diagram"></i> Portfolio</h2>
+            <p class="section-intro">Selected research projects and computational workflows</p>
+            
+            <div class="portfolio-category">
+                <h3 class="category-title">Computational Biology & Single-Cell Analysis</h3>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <h4>WhyNHow: Single-Cell RNA Sequencing and TCR Analytic Workflow</h4>
+                        <div class="project-links">
+                            <a href="https://github.com/pathdata/WhyNHow" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub Repository</a>
+                            <a href="https://www.nature.com/articles/s41591-023-02415-3" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Nature Medicine Paper</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-description">
+                        <p><strong>Overview:</strong> A comprehensive analytical workflow for single-cell RNA sequencing (scRNA-seq) and T-cell receptor (TCR) analysis. This project implements a reproducible pipeline for processing, quality control, and analysis of single-cell transcriptomic data, with a focus on T-cell receptor sequencing integration.</p>
+                        
+                        <p><strong>Key Features:</strong></p>
+                        <ul class="project-features">
+                            <li>End-to-end scRNA-seq data processing pipeline</li>
+                            <li>TCR sequencing data integration and analysis</li>
+                            <li>Quality control metrics with mitochondrial gene assessment</li>
+                            <li>Cell type identification and clustering</li>
+                            <li>Reproducible R and Python workflows</li>
+                        </ul>
+
+                        <p><strong>Technologies:</strong> R, Python, Seurat, Single-cell analysis, TCR sequencing, Bioinformatics</p>
+                    </div>
+
+                    <div class="project-methodology">
+                        <h5>Methodology</h5>
+                        <p>The workflow begins with raw sequencing data preprocessing, including quality filtering and normalization. Key steps include:</p>
+                        <ol>
+                            <li><strong>Data Preprocessing:</strong> Raw count matrix processing, cell and gene filtering based on quality metrics</li>
+                            <li><strong>Quality Control:</strong> Assessment of mitochondrial gene expression, UMI counts, and gene detection rates</li>
+                            <li><strong>Normalization & Scaling:</strong> Log-normalization and variance stabilization of gene expression data</li>
+                            <li><strong>Dimensionality Reduction:</strong> Principal component analysis (PCA) followed by UMAP visualization</li>
+                            <li><strong>Clustering:</strong> Cell type identification using graph-based clustering algorithms</li>
+                            <li><strong>TCR Integration:</strong> Integration of T-cell receptor sequencing data with transcriptomic profiles</li>
+                            <li><strong>Downstream Analysis:</strong> Differential expression analysis, pathway enrichment, and clonotype characterization</li>
+                        </ol>
+                    </div>
+
+                    <div class="project-results">
+                        <h5>Key Results</h5>
+                        <p>This workflow enables comprehensive analysis of single-cell transcriptomic data with integrated TCR information, facilitating:</p>
+                        <ul>
+                            <li>Identification of distinct T-cell subsets based on both transcriptomic and TCR profiles</li>
+                            <li>Characterization of clonal expansion patterns in T-cell populations</li>
+                            <li>Assessment of cellular diversity and heterogeneity in complex tissue samples</li>
+                            <li>Integration with clinical phenotypes for biomarker discovery</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-references">
+                        <h5>References</h5>
+                        <p>Based on methodology from: <a href="https://www.nature.com/articles/s41591-023-02415-3" target="_blank">Nature Medicine (2023)</a></p>
+                        <p>Repository: <a href="https://github.com/pathdata/WhyNHow" target="_blank">https://github.com/pathdata/WhyNHow</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-category">
+                <h3 class="category-title">Internal Projects</h3>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h4>Digital Pathology and Unified Cell Detection and Classification</h4>
+                    </div>
+                    <div class="project-description">
+                        <p>Internal project focused on computational workflows for digital pathology analysis with unified cell detection and phenotype classification across slide images.</p>
+                    </div>
+                    <div class="project-references">
+                        <h5>References</h5>
+                        <p>Internal project material and demo resources.</p>
+                    </div>
+
+                    <div class="project-video">
+                        <h5>Project Video</h5>
+                        <video controls class="project-media">
+                            <source src="dual_slide_viewer.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Priya Lakshmi Narayanan PhD. All rights reserved.</p>
+            <p>Institute of Cancer Research | 15 Cotswold Road, Surrey, UK, SM2 5NG</p>
+        </div>
+    </footer>
+</body>
+</html>
