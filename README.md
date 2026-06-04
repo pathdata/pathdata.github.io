@@ -2,15 +2,8 @@
 
 This repository contains professional CV and track record hosted on GitHub Pages.
 
-## Files Included
-
-1. **index.html** - The main HTML file with CV 
-2. **styles.css** - The stylesheet for the deployed website
-3. **README.md** - This file with instructions
-
-## Deployment Instructions
-
 ### GitHub Website 
+
 https://pathdata.github.io/
 
 ## Customization Tips
@@ -19,13 +12,6 @@ https://pathdata.github.io/
 
 - Publication
 - Supervision section
-
-### Change Colors
-
-Open `styles.css` and modify the color schemes:
-- Primary gradient: Lines 19-20 (purple gradient)
-- Accent colors: Search for `#667eea` and `#764ba2`
-- Background: Line 11 (`#f5f5f5`)
 
 ### Add More Sections
 
