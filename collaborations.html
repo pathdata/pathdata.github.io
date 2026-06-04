@@ -229,10 +229,10 @@
   <p class="page-desc">Co-author network across peer-reviewed publications, conference proceedings, and joint grants</p>
 
   <div class="stats">
-    <div class="stat-card"><div class="num">31</div><div class="label">Collaborators</div></div>
-    <div class="stat-card"><div class="num">8</div><div class="label">Institutions</div></div>
-    <div class="stat-card"><div class="num">10</div><div class="label">Publications</div></div>
-    <div class="stat-card"><div class="num">4</div><div class="label">Countries</div></div>
+    <div class="stat-card"><div class="num">37</div><div class="label">Collaborators</div></div>
+    <div class="stat-card"><div class="num">10</div><div class="label">Institutions</div></div>
+    <div class="stat-card"><div class="num">14</div><div class="label">Publications</div></div>
+    <div class="stat-card"><div class="num">6</div><div class="label">Countries</div></div>
   </div>
 
   <!-- Network map -->
@@ -244,6 +244,7 @@
       <span><span class="legend-dot" style="background:#1a3a6e"></span>UCL</span>
       <span><span class="legend-dot" style="background:#c05621"></span>Duke / US</span>
       <span><span class="legend-dot" style="background:#4c3a8a"></span>IEEE / Multi-centre</span>
+      <span><span class="legend-dot" style="background:#7d2a1a"></span>UCT / MRI</span>
       <span><span class="legend-dot" style="background:#6b7280"></span>Other</span>
     </div>
   </div>
@@ -256,6 +257,7 @@
     <button class="filter-btn" data-f="ucl" onclick="filter(this,'ucl')">UCL</button>
     <button class="filter-btn" data-f="duke" onclick="filter(this,'duke')">Duke / US</button>
     <button class="filter-btn" data-f="ieee" onclick="filter(this,'ieee')">IEEE Challenge</button>
+    <button class="filter-btn" data-f="uct" onclick="filter(this,'uct')">UCT / MRI</button>
     <button class="filter-btn" data-f="other" onclick="filter(this,'other')">Other</button>
   </div>
 
@@ -305,7 +307,7 @@ const COLLABS = [
   { name:"Robert B West", inst:"Stanford University", group:"duke", initials:"RW", color:"#c05621",
     pubs:["UNMaSk – NPJ Breast Cancer 2021"] },
   { name:"Jesuchristopher Joseph", inst:"PathXL / AstraZeneca", group:"other", initials:"JJ", color:"#6b7280",
-    pubs:["PTM-NET – Sci Reports 2019","ISBI 2020 challenge"] },
+    pubs:["PTM-NET – Sci Reports 2019","ISBI 2020 challenge","Cerebellar atlas – ISMRM 2013","Femur Trabeculae – ESB 2011"] },
   { name:"William J Howat", inst:"Cancer Research UK Cambridge", group:"other", initials:"WH", color:"#6b7280",
     pubs:["PTM-NET – Sci Reports 2019"] },
   { name:"Arvydas Laurinavicius", inst:"Vilnius University", group:"other", initials:"AL", color:"#6b7280",
@@ -332,10 +334,26 @@ const COLLABS = [
     pubs:["MoNuSAC2020 – IEEE TMI 2021"] },
   { name:"Joseph Geradts", inst:"Duke University Medical Center", group:"duke", initials:"JG", color:"#c05621",
     pubs:["Reference / advisory collaborator"] },
+  // UCT / MRI group
+  { name:"Ernesta M Meintjes", inst:"University of Cape Town, MRC/UCT MRI Unit", group:"uct", initials:"EM", color:"#7d2a1a",
+    pubs:["Cerebellar atlas – ISMRM 2013","Cerebellar lobules MRI – ISMRM 2012","Improved segmentation – J Neurosci Methods 2016"] },
+  { name:"Christopher Warton", inst:"University of Cape Town", group:"uct", initials:"CW", color:"#7d2a1a",
+    pubs:["Cerebellar atlas – ISMRM 2013","Cerebellar lobules MRI – ISMRM 2012","Improved segmentation – J Neurosci Methods 2016"] },
+  { name:"Sandra W Jacobson", inst:"Wayne State University / UCT", group:"uct", initials:"SJ", color:"#7d2a1a",
+    pubs:["Cerebellar atlas – ISMRM 2013","Cerebellar lobules MRI – ISMRM 2012","Improved segmentation – J Neurosci Methods 2016"] },
+  { name:"Joseph L Jacobson", inst:"Wayne State University / UCT", group:"uct", initials:"JJ2", color:"#7d2a1a",
+    pubs:["Cerebellar atlas – ISMRM 2013","Cerebellar lobules MRI – ISMRM 2012","Improved segmentation – J Neurosci Methods 2016"] },
+  { name:"Christopher D Molteno", inst:"University of Otago / UCT", group:"uct", initials:"CM2", color:"#7d2a1a",
+    pubs:["Cerebellar atlas – ISMRM 2013","Cerebellar lobules MRI – ISMRM 2012","Improved segmentation – J Neurosci Methods 2016"] },
+  // Signal processing / early career
+  { name:"M. Sasikala", inst:"Anna University, Chennai", group:"other", initials:"MS2", color:"#6b7280",
+    pubs:["Multimodal image fusion – ICIP 2007"] },
+  { name:"N. Kumaravel", inst:"Anna University, Chennai", group:"other", initials:"NK2", color:"#6b7280",
+    pubs:["Multimodal image fusion – ICIP 2007"] },
 ];
 
-const INST_CLASS = { icr:"inst-icr", ucl:"inst-ucl", duke:"inst-duke", ieee:"inst-ieee", other:"inst-other" };
-const INST_LABEL = { icr:"ICR / Royal Marsden", ucl:"UCL", duke:"Duke / US", ieee:"IEEE challenge", other:"Other" };
+const INST_CLASS = { icr:"inst-icr", ucl:"inst-ucl", duke:"inst-duke", ieee:"inst-ieee", uct:"inst-uct", other:"inst-other" };
+const INST_LABEL = { icr:"ICR / Royal Marsden", ucl:"UCL", duke:"Duke / US", ieee:"IEEE challenge", uct:"UCT / MRI", other:"Other" };
 
 function initGrid() {
   const g = document.getElementById('grid');
