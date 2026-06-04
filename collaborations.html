@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collaborations - Priya Lakshmi Narayanan</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f2744;
+    --teal: #1a7a6e;
+    --teal-light: #e8f5f3;
+    --teal-mid: #2a9d8f;
+    --amber: #e76f51;
+    --text: #1c1c1e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --bg: #fafaf8;
+    --white: #ffffff;
+    --radius: 4px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+  }
+
+  /* ── Header identical to existing site ── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem 0;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+  }
+  header .subtitle {
+    color: var(--muted);
+    font-size: 0.875rem;
+    margin: 0.15rem 0 0.75rem;
+  }
+  header .contact-row {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  header .contact-row a { color: var(--teal); text-decoration: none; margin-right: 0.75rem; }
+  nav { display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid var(--border); }
+  nav a {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.55rem 0.9rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s;
+  }
+  nav a:hover { color: var(--navy); }
+  nav a.active { color: var(--teal); border-bottom-color: var(--teal); font-weight: 500; }
+
+  /* ── Page body ── */
+  main { max-width: 960px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .page-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+  .page-desc { color: var(--muted); font-size: 0.875rem; margin-bottom: 2rem; }
+
+  /* ── Stats row ── */
+  .stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.85rem 1.25rem;
+    flex: 1; min-width: 130px;
+  }
+  .stat-card .num {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--teal);
+    line-height: 1;
+  }
+  .stat-card .label { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ── Network map ── */
+  .section-heading {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  #network-wrap {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  #network-wrap svg { display: block; width: 100%; }
+  .network-legend {
+    display: flex; gap: 1.25rem; flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem; color: var(--muted);
+  }
+  .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+  /* ── Filter bar ── */
+  .filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .filter-btn {
+    font-size: 0.78rem; font-family: 'DM Sans', sans-serif;
+    border: 1px solid var(--border);
+    background: var(--white); color: var(--muted);
+    border-radius: 20px; padding: 0.3rem 0.85rem;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .filter-btn:hover, .filter-btn.on { background: var(--teal); color: #fff; border-color: var(--teal); }
+
+  /* ── Collaborator cards ── */
+  .collab-grid { display: flex; flex-direction: column; gap: 0; }
+  .collab-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    border-bottom: none;
+    padding: 1rem 1.25rem;
+    display: grid;
+    grid-template-columns: 42px 1fr auto;
+    gap: 0 1rem;
+    align-items: start;
+    transition: background 0.12s;
+  }
+  .collab-item:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+  .collab-item:last-child { border-bottom: 1px solid var(--border); border-radius: 0 0 var(--radius) var(--radius); }
+  .collab-item:hover { background: var(--teal-light); }
+  .collab-item.hidden { display: none; }
+
+  .avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 500; color: #fff;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .collab-name { font-weight: 500; font-size: 0.92rem; color: var(--navy); }
+  .collab-inst { font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
+  .collab-pubs {
+    font-size: 0.75rem; color: var(--teal);
+    font-weight: 500; margin-top: 0.1rem;
+  }
+  .pub-pills { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+  .pub-pill {
+    font-size: 0.7rem; background: #f3f4f6; color: var(--muted);
+    border-radius: 3px; padding: 0.15rem 0.5rem;
+    border: 1px solid var(--border);
+    max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .inst-badge {
+    font-size: 0.7rem; padding: 0.2rem 0.6rem;
+    border-radius: 20px; font-weight: 500;
+    white-space: nowrap; flex-shrink: 0; margin-top: 3px;
+  }
+
+  /* institution colours */
+  .inst-icr   { background: #e8f5f3; color: #0f6e56; }
+  .inst-ucl   { background: #e8eef8; color: #1a3a6e; }
+  .inst-duke  { background: #fef3e8; color: #854f0b; }
+  .inst-other { background: #f3f4f6; color: #4b5563; }
+  .inst-ieee  { background: #f0eef8; color: #4c3a8a; }
+  .inst-uct   { background: #fff0ee; color: #7d2a1a; }
+
+  footer {
+    text-align: center; font-size: 0.78rem; color: var(--muted);
+    padding: 2rem; border-top: 1px solid var(--border);
+    max-width: 960px; margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    main { padding: 1.5rem 1rem 3rem; }
+    header { padding: 1.25rem 1rem 0; }
+    .collab-item { grid-template-columns: 36px 1fr; }
+    .inst-badge { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div style="background:#fff; border-bottom:1px solid var(--border);">
+<header>
+  <h1>Priya Lakshmi Narayanan PhD (Biomedical Engineering)</h1>
+  <p class="subtitle">Senior Scientific Officer | Computational Scientist</p>
+  <p class="contact-row">
+    <a href="mailto:priya.narayanan@icr.ac.uk">priya.narayanan@icr.ac.uk</a>
+    <a href="https://orcid.org/0000-0001-6784-9226" target="_blank">ORCID</a>
+    <a href="https://www.linkedin.com/in/priya-lakshmi-narayanan-7aa71748/" target="_blank">LinkedIn</a>
+  </p>
+  <nav>
+    <a href="https://pathdata.github.io/index.html#about">About</a>
+    <a href="https://pathdata.github.io/index.html#research">Research</a>
+    <a href="https://pathdata.github.io/index.html#experience">Experience</a>
+    <a href="https://pathdata.github.io/index.html#education">Education</a>
+    <a href="https://pathdata.github.io/index.html#skills">Skills</a>
+    <a href="https://pathdata.github.io/projects.html">Projects</a>
+    <a href="https://pathdata.github.io/conferences.html">Conferences</a>
+    <a href="https://pathdata.github.io/networking.html">Networking Events</a>
+    <a href="collaborations.html" class="active">Collaborations</a>
+  </nav>
+</header>
+</div>
+
+<main>
+  <h2 class="page-title">Collaborations</h2>
+  <p class="page-desc">Co-author network across peer-reviewed publications, conference proceedings, and joint grants</p>
+
+  <div class="stats">
+    <div class="stat-card"><div class="num">31</div><div class="label">Collaborators</div></div>
+    <div class="stat-card"><div class="num">8</div><div class="label">Institutions</div></div>
+    <div class="stat-card"><div class="num">10</div><div class="label">Publications</div></div>
+    <div class="stat-card"><div class="num">4</div><div class="label">Countries</div></div>
+  </div>
+
+  <!-- Network map -->
+  <h3 class="section-heading">Co-author network</h3>
+  <div id="network-wrap">
+    <svg id="net" viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="network-legend">
+      <span><span class="legend-dot" style="background:#1a7a6e"></span>ICR / Royal Marsden</span>
+      <span><span class="legend-dot" style="background:#1a3a6e"></span>UCL</span>
+      <span><span class="legend-dot" style="background:#c05621"></span>Duke / US</span>
+      <span><span class="legend-dot" style="background:#4c3a8a"></span>IEEE / Multi-centre</span>
+      <span><span class="legend-dot" style="background:#6b7280"></span>Other</span>
+    </div>
+  </div>
+
+  <!-- Filter -->
+  <h3 class="section-heading">All collaborators</h3>
+  <div class="filter-bar">
+    <button class="filter-btn on" data-f="all" onclick="filter(this,'all')">All</button>
+    <button class="filter-btn" data-f="icr" onclick="filter(this,'icr')">ICR / Royal Marsden</button>
+    <button class="filter-btn" data-f="ucl" onclick="filter(this,'ucl')">UCL</button>
+    <button class="filter-btn" data-f="duke" onclick="filter(this,'duke')">Duke / US</button>
+    <button class="filter-btn" data-f="ieee" onclick="filter(this,'ieee')">IEEE Challenge</button>
+    <button class="filter-btn" data-f="other" onclick="filter(this,'other')">Other</button>
+  </div>
+
+  <div class="collab-grid" id="grid">
+  </div>
+</main>
+
+<footer>
+  © 2025 Priya Lakshmi Narayanan PhD. All rights reserved.<br>
+  Institute of Cancer Research | 15 Cotswold Road, Surrey, UK, SM2 5NG
+</footer>
+
+<script>
+const COLLABS = [
+  { name:"Yinyin Yuan", inst:"ICR / Institute of Cancer Research", group:"icr", initials:"YY", color:"#1a7a6e",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021","DeepSDCS – MIDL 2018","ConCORDe-Net – MICCAI 2019","MoNuSAC2020 – IEEE TMI 2021","PTM-NET – Sci Reports 2019"] },
+  { name:"Shan E Ahmed Raza", inst:"ICR / Institute of Cancer Research", group:"icr", initials:"SR", color:"#1a7a6e",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021","MoNuSAC2020 – IEEE TMI 2021"] },
+  { name:"Manuel Salto-Tellez", inst:"ICR / Institute of Cancer Research", group:"icr", initials:"MS", color:"#1a7a6e",
+    pubs:["c-pmat – CBIAS 2024","BVSegNet – CBIAS 2023","TMAAP – CBIAS 2024","Rare cell phenotypes – CBIAS 2024","Colorectal MSI – In preparation"] },
+  { name:"Tom Lund", inst:"ICR / Institute of Cancer Research", group:"icr", initials:"TL", color:"#1a7a6e",
+    pubs:["c-pmat – CBIAS 2024","Picrosirius red – CBIAS 2023","Colorectal MSI – In preparation","TMAAP – CBIAS 2024"] },
+  { name:"Navita Somaiah", inst:"ICR / Royal Marsden NHS Trust", group:"icr", initials:"NS", color:"#1a7a6e",
+    pubs:["BVSegNet – CBIAS 2023"] },
+  { name:"Anna Wilkins", inst:"ICR / Royal Marsden NHS Trust", group:"icr", initials:"AW", color:"#1a7a6e",
+    pubs:["c-pmat – CBIAS 2024","Picrosirius red – CBIAS 2023"] },
+  { name:"Kirti Prakash", inst:"ICR / Institute of Cancer Research", group:"icr", initials:"KP", color:"#1a7a6e",
+    pubs:["BVSegNet – CBIAS 2023"] },
+  { name:"Ferran Cardoso Rodriguez", inst:"ICR / Institute of Cancer Research", group:"icr", initials:"FC", color:"#1a7a6e",
+    pubs:["TMAAP – CBIAS 2024","EACR 2024 poster"] },
+  { name:"Constantino Carlos Reyes-Aldasoro", inst:"City St George's, University of London", group:"other", initials:"CR", color:"#6b7280",
+    pubs:["Rare cell phenotypes – CBIAS 2024","TMAAP – CBIAS 2024","Colorectal MSI – In preparation","ER+ breast cancer ML – In preparation"] },
+  { name:"Mitch Dowsett", inst:"ICR / Royal Marsden NHS Trust", group:"icr", initials:"MD", color:"#1a7a6e",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021","DeepSDCS – MIDL 2018","UKIBCS 2018"] },
+  { name:"Barry Gusterson", inst:"University of Glasgow", group:"other", initials:"BG", color:"#6b7280",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021","Leeds Pathology 2019"] },
+  { name:"E Shelley Hwang", inst:"Duke University Medical Center", group:"duke", initials:"EH", color:"#c05621",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021","Leeds Pathology 2019"] },
+  { name:"Carlo Maley", inst:"Arizona State University / Biodesign", group:"duke", initials:"CM", color:"#c05621",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021"] },
+  { name:"Jeffrey R Marks", inst:"Duke University Medical Center", group:"duke", initials:"JM", color:"#c05621",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021"] },
+  { name:"Allison H Hall", inst:"Duke University Medical Center", group:"duke", initials:"AH", color:"#c05621",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021"] },
+  { name:"Lorraine King", inst:"Stanford University", group:"duke", initials:"LK", color:"#c05621",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021"] },
+  { name:"Robert B West", inst:"Stanford University", group:"duke", initials:"RW", color:"#c05621",
+    pubs:["UNMaSk – NPJ Breast Cancer 2021"] },
+  { name:"Jesuchristopher Joseph", inst:"PathXL / AstraZeneca", group:"other", initials:"JJ", color:"#6b7280",
+    pubs:["PTM-NET – Sci Reports 2019","ISBI 2020 challenge"] },
+  { name:"William J Howat", inst:"Cancer Research UK Cambridge", group:"other", initials:"WH", color:"#6b7280",
+    pubs:["PTM-NET – Sci Reports 2019"] },
+  { name:"Arvydas Laurinavicius", inst:"Vilnius University", group:"other", initials:"AL", color:"#6b7280",
+    pubs:["PTM-NET – Sci Reports 2019"] },
+  { name:"Petru Manescu", inst:"University College London", group:"ucl", initials:"PM", color:"#1a3a6e",
+    pubs:["APL deep learning – Sci Reports 2023"] },
+  { name:"Delmiro Fernandez-Reyes", inst:"University College London", group:"ucl", initials:"DF", color:"#1a3a6e",
+    pubs:["APL deep learning – Sci Reports 2023"] },
+  { name:"Vijay Pawar", inst:"University College London", group:"ucl", initials:"VP", color:"#1a3a6e",
+    pubs:["APL deep learning – Sci Reports 2023"] },
+  { name:"Yeman Brhane Hagos", inst:"ICR / Yinyin Yuan lab", group:"icr", initials:"YH", color:"#1a7a6e",
+    pubs:["ConCORDe-Net – MICCAI 2019"] },
+  { name:"Ayse U Akarca", inst:"University College London", group:"ucl", initials:"AA", color:"#1a3a6e",
+    pubs:["ConCORDe-Net – MICCAI 2019"] },
+  { name:"Teresa Marafioti", inst:"University College London", group:"ucl", initials:"TM", color:"#1a3a6e",
+    pubs:["ConCORDe-Net – MICCAI 2019"] },
+  { name:"Hanyun Zhang", inst:"ICR / Yinyin Yuan lab", group:"icr", initials:"HZ", color:"#1a7a6e",
+    pubs:["MoNuSAC2020 – IEEE TMI 2021","ISBI 2020 challenge"] },
+  { name:"Nasir Rajpoot", inst:"University of Warwick", group:"ieee", initials:"NR", color:"#4c3a8a",
+    pubs:["MoNuSAC2020 – IEEE TMI 2021"] },
+  { name:"Ruchika Verma", inst:"University of Waterloo", group:"ieee", initials:"RV", color:"#4c3a8a",
+    pubs:["MoNuSAC2020 – IEEE TMI 2021"] },
+  { name:"Neeraj Kumar", inst:"National University of Singapore", group:"ieee", initials:"NK", color:"#4c3a8a",
+    pubs:["MoNuSAC2020 – IEEE TMI 2021"] },
+  { name:"Joseph Geradts", inst:"Duke University Medical Center", group:"duke", initials:"JG", color:"#c05621",
+    pubs:["Reference / advisory collaborator"] },
+];
+
+const INST_CLASS = { icr:"inst-icr", ucl:"inst-ucl", duke:"inst-duke", ieee:"inst-ieee", other:"inst-other" };
+const INST_LABEL = { icr:"ICR / Royal Marsden", ucl:"UCL", duke:"Duke / US", ieee:"IEEE challenge", other:"Other" };
+
+function initGrid() {
+  const g = document.getElementById('grid');
+  COLLABS.forEach((c, i) => {
+    const pubs = c.pubs.map(p => `<span class="pub-pill" title="${p}">${p}</span>`).join('');
+    g.innerHTML += `
+    <div class="collab-item" data-g="${c.group}" id="ci${i}">
+      <div class="avatar" style="background:${c.color}">${c.initials}</div>
+      <div>
+        <div class="collab-name">${c.name}</div>
+        <div class="collab-inst">${c.inst}</div>
+        <div class="collab-pubs">${c.pubs.length} joint publication${c.pubs.length>1?'s':''}</div>
+        <div class="pub-pills">${pubs}</div>
+      </div>
+      <span class="inst-badge ${INST_CLASS[c.group]}">${INST_LABEL[c.group]}</span>
+    </div>`;
+  });
+}
+
+function filter(btn, group) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.collab-item').forEach(el => {
+    el.classList.toggle('hidden', group !== 'all' && el.dataset.g !== group);
+  });
+}
+
+/* ── Network SVG ── */
+function drawNetwork() {
+  const svg = document.getElementById('net');
+  const W = 900, H = 380;
+
+  // Centre node = Priya
+  const center = { x:450, y:200, r:26, label:"Priya", color:"#0f2744" };
+
+  // Cluster hub positions
+  const hubs = [
+    { id:"icr",   x:200, y:130, r:18, label:"ICR",      color:"#1a7a6e" },
+    { id:"ucl",   x:680, y:110, r:16, label:"UCL",      color:"#1a3a6e" },
+    { id:"duke",  x:200, y:290, r:15, label:"Duke/US",  color:"#c05621" },
+    { id:"ieee",  x:680, y:290, r:15, label:"IEEE",     color:"#4c3a8a" },
+    { id:"other", x:450, y:80,  r:13, label:"Other",    color:"#6b7280" },
+  ];
+
+  // Leaf nodes per hub (sample subset for clarity)
+  const leaves = [
+    // ICR
+    { hub:"icr", x:110, y:80,  r:11, label:"Y Yuan",   color:"#1a7a6e" },
+    { hub:"icr", x:80,  y:160, r:10, label:"M Salto-T",color:"#1a7a6e" },
+    { hub:"icr", x:145, y:220, r:9,  label:"T Lund",   color:"#1a7a6e" },
+    { hub:"icr", x:260, y:70,  r:9,  label:"S Raza",   color:"#1a7a6e" },
+    { hub:"icr", x:290, y:175, r:9,  label:"A Wilkins",color:"#1a7a6e" },
+    { hub:"icr", x:310, y:250, r:8,  label:"N Somaiah",color:"#1a7a6e" },
+    // UCL
+    { hub:"ucl", x:790, y:80,  r:10, label:"P Manescu",color:"#1a3a6e" },
+    { hub:"ucl", x:820, y:155, r:9,  label:"D F-Reyes",color:"#1a3a6e" },
+    { hub:"ucl", x:760, y:200, r:9,  label:"A Akarca", color:"#1a3a6e" },
+    { hub:"ucl", x:600, y:55,  r:8,  label:"T Marafioti",color:"#1a3a6e" },
+    // Duke
+    { hub:"duke", x:100, y:340, r:10, label:"E S Hwang",color:"#c05621" },
+    { hub:"duke", x:190, y:360, r:9,  label:"J Marks",  color:"#c05621" },
+    { hub:"duke", x:295, y:340, r:8,  label:"C Maley",  color:"#c05621" },
+    // IEEE
+    { hub:"ieee", x:790, y:310, r:10, label:"N Rajpoot",color:"#4c3a8a" },
+    { hub:"ieee", x:820, y:240, r:9,  label:"R Verma",  color:"#4c3a8a" },
+    { hub:"ieee", x:720, y:355, r:8,  label:"N Kumar",  color:"#4c3a8a" },
+    // Other
+    { hub:"other", x:360, y:32,  r:9, label:"B Gusterson",color:"#6b7280" },
+    { hub:"other", x:540, y:32,  r:9, label:"C Reyes-A", color:"#6b7280" },
+    { hub:"other", x:450, y:155, r:8, label:"J Joseph",  color:"#6b7280" },
+  ];
+
+  let s = '';
+
+  // Lines: center → hubs
+  hubs.forEach(h => {
+    s += `<line x1="${center.x}" y1="${center.y}" x2="${h.x}" y2="${h.y}" stroke="${h.color}" stroke-width="1.5" stroke-opacity="0.35"/>`;
+  });
+
+  // Lines: hub → leaves
+  leaves.forEach(l => {
+    const hub = hubs.find(h => h.id === l.hub);
+    s += `<line x1="${hub.x}" y1="${hub.y}" x2="${l.x}" y2="${l.y}" stroke="${l.color}" stroke-width="1" stroke-opacity="0.25"/>`;
+  });
+
+  // Leaf nodes
+  leaves.forEach(l => {
+    s += `<circle cx="${l.x}" cy="${l.y}" r="${l.r}" fill="${l.color}" fill-opacity="0.75"/>`;
+    s += `<text x="${l.x}" y="${l.y + l.r + 11}" text-anchor="middle" font-size="8" fill="#6b7280" font-family="DM Sans,sans-serif">${l.label}</text>`;
+  });
+
+  // Hub nodes
+  hubs.forEach(h => {
+    s += `<circle cx="${h.x}" cy="${h.y}" r="${h.r}" fill="${h.color}" fill-opacity="0.9"/>`;
+    s += `<text x="${h.x}" y="${h.y + h.r + 12}" text-anchor="middle" font-size="9" fill="${h.color}" font-weight="500" font-family="DM Sans,sans-serif">${h.label}</text>`;
+  });
+
+  // Centre node
+  s += `<circle cx="${center.x}" cy="${center.y}" r="${center.r}" fill="${center.color}"/>`;
+  s += `<text x="${center.x}" y="${center.y + 4}" text-anchor="middle" font-size="9" fill="#fff" font-weight="500" font-family="DM Sans,sans-serif">${center.label}</text>`;
+
+  svg.innerHTML = s;
+}
+
+initGrid();
+drawNetwork();
+</script>
+</body>
+</html>
